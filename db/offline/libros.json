@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "titulo": "El libro de la vida",
+    "autor": "John Doe",
+    "editorial": "Editorial de John Doe",
+    "categoria": "Ficción",
+    "fecha": "2022-01-01",
+    "paginas": 100,
+    "precio": 10.0
+  },
+  {
+    "id": 2,
+    "titulo": "libro dos",
+    "autor": "John Doe",
+    "editorial": "Editorial de John Doe",
+    "categoria": "Ficción",
+    "fecha": "2022-01-01",
+    "paginas": 100,
+    "precio": 10.0
+  }
+]
