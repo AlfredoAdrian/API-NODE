@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "devmongo": "docker-compose -f docker-compose.mongo.yml up -d mongodb && nodemon src/app.js"
   },
   "author": "anvidev",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
