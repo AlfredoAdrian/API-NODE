@@ -4,9 +4,13 @@ const jwt = require("jsonwebtoken");
 exports.register = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = new User({ username, password });
+    const user = await User.findOne({ username });
+    if (user) {
+      return res.status(409).send({ error: "Usuario ya registrado" });
+    }
+    user = new User({ username, password });
     await user.save();
-    res.status(201).send({ message: "Usuario registrado exitosamente" });
+    res.status(201).send({ message: "Usuario registrado exitosamente", user });
   } catch (err) {
     res.status(400).send({ error: "Error registrando usuario" });
   }
@@ -22,7 +26,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.send({ token });
+    res.send({ token, user });
   } catch (err) {
     res.status(400).send({ error: "Error en el inicio de sesión" });
   }
